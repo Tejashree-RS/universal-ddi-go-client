@@ -27,7 +27,10 @@ func TestHealthCheckHttpAPIService(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
-		resp, httpRes, err := apiClient.HealthCheckHttpAPI.Create(context.Background()).Execute()
+		body := dtc.NewHTTPHealthCheck("test-hc-http", 80)
+		body.SetRequest("GET / HTTP/1.0\r\n\r\n")
+
+		resp, httpRes, err := apiClient.HealthCheckHttpAPI.Create(context.Background()).Body(*body).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -80,7 +83,10 @@ func TestHealthCheckHttpAPIService(t *testing.T) {
 
 		var id string
 
-		resp, httpRes, err := apiClient.HealthCheckHttpAPI.Update(context.Background(), id).Execute()
+		body := dtc.NewHTTPHealthCheck("test-hc-http-updated", 8080)
+		body.SetRequest("GET /health HTTP/1.0\r\n\r\n")
+
+		resp, httpRes, err := apiClient.HealthCheckHttpAPI.Update(context.Background(), id).Body(*body).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

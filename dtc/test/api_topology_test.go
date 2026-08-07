@@ -27,7 +27,8 @@ func TestTopologyAPIService(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
-		resp, httpRes, err := apiClient.TopologyAPI.Create(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TopologyAPI.Create(context.Background()).
+			Body(*dtc.NewTopology("test-topology")).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -80,7 +81,8 @@ func TestTopologyAPIService(t *testing.T) {
 
 		var id string
 
-		resp, httpRes, err := apiClient.TopologyAPI.Update(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.TopologyAPI.Update(context.Background(), id).
+			Body(*dtc.NewTopology("test-topology-updated")).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

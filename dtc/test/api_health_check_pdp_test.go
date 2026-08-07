@@ -27,7 +27,8 @@ func TestHealthCheckPdpAPIService(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
-		resp, httpRes, err := apiClient.HealthCheckPdpAPI.Create(context.Background()).Execute()
+		resp, httpRes, err := apiClient.HealthCheckPdpAPI.Create(context.Background()).
+			Body(*dtc.NewPDPHealthCheck("test-hc-pdp")).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -80,7 +81,8 @@ func TestHealthCheckPdpAPIService(t *testing.T) {
 
 		var id string
 
-		resp, httpRes, err := apiClient.HealthCheckPdpAPI.Update(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.HealthCheckPdpAPI.Update(context.Background(), id).
+			Body(*dtc.NewPDPHealthCheck("test-hc-pdp-updated")).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

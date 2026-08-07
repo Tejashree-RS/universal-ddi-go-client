@@ -27,7 +27,8 @@ func TestSnmpUserSecurityAPIService(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
-		resp, httpRes, err := apiClient.SnmpUserSecurityAPI.Create(context.Background()).Execute()
+		resp, httpRes, err := apiClient.SnmpUserSecurityAPI.Create(context.Background()).
+			Body(*dtc.NewSNMPUserSecurityModel()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -80,7 +81,8 @@ func TestSnmpUserSecurityAPIService(t *testing.T) {
 
 		var id string
 
-		resp, httpRes, err := apiClient.SnmpUserSecurityAPI.Update(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.SnmpUserSecurityAPI.Update(context.Background(), id).
+			Body(*dtc.NewSNMPUserSecurityModel()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -27,7 +27,8 @@ func TestHealthCheckIcmpAPIService(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
-		resp, httpRes, err := apiClient.HealthCheckIcmpAPI.Create(context.Background()).Execute()
+		resp, httpRes, err := apiClient.HealthCheckIcmpAPI.Create(context.Background()).
+			Body(*dtc.NewICMPHealthCheck("test-hc-icmp")).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -80,7 +81,8 @@ func TestHealthCheckIcmpAPIService(t *testing.T) {
 
 		var id string
 
-		resp, httpRes, err := apiClient.HealthCheckIcmpAPI.Update(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.HealthCheckIcmpAPI.Update(context.Background(), id).
+			Body(*dtc.NewICMPHealthCheck("test-hc-icmp-updated")).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -27,7 +27,8 @@ func TestPolicyAPIService(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
-		resp, httpRes, err := apiClient.PolicyAPI.Create(context.Background()).Execute()
+		resp, httpRes, err := apiClient.PolicyAPI.Create(context.Background()).
+			Body(*dtc.NewPolicy("global_availability", "test-policy")).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -80,7 +81,8 @@ func TestPolicyAPIService(t *testing.T) {
 
 		var id string
 
-		resp, httpRes, err := apiClient.PolicyAPI.Update(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.PolicyAPI.Update(context.Background(), id).
+			Body(*dtc.NewPolicy("global_availability", "test-policy-updated")).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

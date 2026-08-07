@@ -30,7 +30,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/infobloxopen/bloxone-go-client/dtc"
+	"github.com/infobloxopen/universal-ddi-go-client/dtc"
 )
 
 func main() {
@@ -97,7 +97,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/infobloxopen/bloxone-go-client/dtc"
+	"github.com/infobloxopen/universal-ddi-go-client/dtc"
 )
 
 func main() {
@@ -164,7 +164,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/infobloxopen/bloxone-go-client/dtc"
+	"github.com/infobloxopen/universal-ddi-go-client/dtc"
 )
 
 func main() {
@@ -237,7 +237,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/infobloxopen/bloxone-go-client/dtc"
+	"github.com/infobloxopen/universal-ddi-go-client/dtc"
 )
 
 func main() {
@@ -308,7 +308,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/infobloxopen/bloxone-go-client/dtc"
+	"github.com/infobloxopen/universal-ddi-go-client/dtc"
 )
 
 func main() {

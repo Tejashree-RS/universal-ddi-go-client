@@ -167,4 +167,15 @@ model_update_snmp_health_check_response.go
 model_update_snmp_user_security_response.go
 model_update_tcp_health_check_response.go
 model_update_topology_response.go
+test/api_health_check_http_test.go
+test/api_health_check_icmp_test.go
+test/api_health_check_pdp_test.go
+test/api_health_check_sip_test.go
+test/api_health_check_snmp_test.go
+test/api_health_check_tcp_test.go
+test/api_policy_test.go
+test/api_pool_test.go
+test/api_server_test.go
+test/api_snmp_user_security_test.go
+test/api_topology_test.go
 utils.go

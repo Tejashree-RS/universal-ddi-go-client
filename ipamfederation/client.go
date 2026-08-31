@@ -1,7 +1,7 @@
 /*
 IPAM Federation API
 
-The DDI IPAM Federation application enables a SaaS administrator to manage multiple IPAM systems from one central control point CSP.
+The DDI IPAM Federation application enables a SaaS administrator to manage multiple IPAM systems from one central control point CSP.    
 
 API version: v1
 */
@@ -23,13 +23,22 @@ type APIClient struct {
 	*internal.APIClient
 
 	// API Services
-	FederatedBlockAPI                FederatedBlockAPI
-	FederatedRealmAPI                FederatedRealmAPI
-	NextAvailableFederatedBlockAPI   NextAvailableFederatedBlockAPI
+	AwsScopeManagementAPI AwsScopeManagementAPI
+	AwsScopeTokenAPI AwsScopeTokenAPI
+	DelegationAPI DelegationAPI
+	FederatedBlockAPI FederatedBlockAPI
+	FederatedPoolAPI FederatedPoolAPI
+	FederatedRealmAPI FederatedRealmAPI
+	ForwardLookingDelegationAPI ForwardLookingDelegationAPI
+	NextAppropriateDelegationAPI NextAppropriateDelegationAPI
+	NextAvailableFederatedBlockAPI NextAvailableFederatedBlockAPI
+	NextAvailableFldAPI NextAvailableFldAPI
+	NextAvailableFldBlockAPI NextAvailableFldBlockAPI
 	NextAvailableOverlappingBlockAPI NextAvailableOverlappingBlockAPI
-	NextAvailableReservedBlockAPI    NextAvailableReservedBlockAPI
-	OverlappingBlockAPI              OverlappingBlockAPI
-	ReservedBlockAPI                 ReservedBlockAPI
+	NextAvailablePoolBlockAPI NextAvailablePoolBlockAPI
+	NextAvailableReservedBlockAPI NextAvailableReservedBlockAPI
+	OverlappingBlockAPI OverlappingBlockAPI
+	ReservedBlockAPI ReservedBlockAPI
 }
 
 // NewAPIClient creates a new API client.
@@ -50,10 +59,19 @@ func NewAPIClient(options ...option.ClientOption) *APIClient {
 	c.APIClient = internal.NewAPIClient(serviceBasePath, cfg)
 
 	// API Services
+	c.AwsScopeManagementAPI = (*AwsScopeManagementAPIService)(&c.Common)
+	c.AwsScopeTokenAPI = (*AwsScopeTokenAPIService)(&c.Common)
+	c.DelegationAPI = (*DelegationAPIService)(&c.Common)
 	c.FederatedBlockAPI = (*FederatedBlockAPIService)(&c.Common)
+	c.FederatedPoolAPI = (*FederatedPoolAPIService)(&c.Common)
 	c.FederatedRealmAPI = (*FederatedRealmAPIService)(&c.Common)
+	c.ForwardLookingDelegationAPI = (*ForwardLookingDelegationAPIService)(&c.Common)
+	c.NextAppropriateDelegationAPI = (*NextAppropriateDelegationAPIService)(&c.Common)
 	c.NextAvailableFederatedBlockAPI = (*NextAvailableFederatedBlockAPIService)(&c.Common)
+	c.NextAvailableFldAPI = (*NextAvailableFldAPIService)(&c.Common)
+	c.NextAvailableFldBlockAPI = (*NextAvailableFldBlockAPIService)(&c.Common)
 	c.NextAvailableOverlappingBlockAPI = (*NextAvailableOverlappingBlockAPIService)(&c.Common)
+	c.NextAvailablePoolBlockAPI = (*NextAvailablePoolBlockAPIService)(&c.Common)
 	c.NextAvailableReservedBlockAPI = (*NextAvailableReservedBlockAPIService)(&c.Common)
 	c.OverlappingBlockAPI = (*OverlappingBlockAPIService)(&c.Common)
 	c.ReservedBlockAPI = (*ReservedBlockAPIService)(&c.Common)

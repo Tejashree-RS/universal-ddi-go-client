@@ -27,8 +27,7 @@ func TestHealthCheckSnmpAPIService(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
-		resp, httpRes, err := apiClient.HealthCheckSnmpAPI.Create(context.Background()).
-			Body(*dtc.NewSNMPHealthCheck("test-hc-snmp", "v2")).Execute()
+		resp, httpRes, err := apiClient.HealthCheckSnmpAPI.Create(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -81,8 +80,7 @@ func TestHealthCheckSnmpAPIService(t *testing.T) {
 
 		var id string
 
-		resp, httpRes, err := apiClient.HealthCheckSnmpAPI.Update(context.Background(), id).
-			Body(*dtc.NewSNMPHealthCheck("test-hc-snmp-updated", "v2")).Execute()
+		resp, httpRes, err := apiClient.HealthCheckSnmpAPI.Update(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

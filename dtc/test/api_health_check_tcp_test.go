@@ -27,8 +27,7 @@ func TestHealthCheckTcpAPIService(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
-		resp, httpRes, err := apiClient.HealthCheckTcpAPI.Create(context.Background()).
-			Body(*dtc.NewTCPHealthCheck("test-hc-tcp", 443)).Execute()
+		resp, httpRes, err := apiClient.HealthCheckTcpAPI.Create(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -81,8 +80,7 @@ func TestHealthCheckTcpAPIService(t *testing.T) {
 
 		var id string
 
-		resp, httpRes, err := apiClient.HealthCheckTcpAPI.Update(context.Background(), id).
-			Body(*dtc.NewTCPHealthCheck("test-hc-tcp-updated", 8443)).Execute()
+		resp, httpRes, err := apiClient.HealthCheckTcpAPI.Update(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

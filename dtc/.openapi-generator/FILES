@@ -52,8 +52,6 @@ docs/PDPHealthCheck.md
 docs/Policy.md
 docs/PolicyAPI.md
 docs/PolicyPool.md
-docs/PolicyTopology.md
-docs/PolicyTopologyRuleBinding.md
 docs/Pool.md
 docs/PoolAPI.md
 docs/PoolHealthCheck.md
@@ -83,7 +81,7 @@ docs/TagRule.md
 docs/Topology.md
 docs/TopologyAPI.md
 docs/TopologyRule.md
-docs/TopologyRulePreset.md
+docs/TopologySource.md
 docs/UpdateHTTPHealthCheckResponse.md
 docs/UpdateICMPHealthCheckResponse.md
 docs/UpdatePDPHealthCheckResponse.md
@@ -128,8 +126,6 @@ model_metadata_resource_meta.go
 model_pdp_health_check.go
 model_policy.go
 model_policy_pool.go
-model_policy_topology.go
-model_policy_topology_rule_binding.go
 model_pool.go
 model_pool_health_check.go
 model_pool_server.go
@@ -154,7 +150,7 @@ model_tag_rule.go
 model_tcp_health_check.go
 model_topology.go
 model_topology_rule.go
-model_topology_rule_preset.go
+model_topology_source.go
 model_ttl_inheritance.go
 model_update_http_health_check_response.go
 model_update_icmp_health_check_response.go

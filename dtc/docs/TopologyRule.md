@@ -8,9 +8,10 @@ Name | Type | Description | Notes
 **Destination** | Pointer to **string** | Destination of __TopologyRule__.  Allowed values: - code - pool  Defaults to _code_. | [optional] 
 **Name** | **string** | Display name of __TopologyRule__. | 
 **PoolId** | Pointer to **string** | The resource identifier. | [optional] 
-**Source** | Pointer to **string** | Type of source.  Allowed values: - subnet - tags - default  Defaults to _default_. | [optional] 
+**Source** | Pointer to **string** | Type of source.  Allowed values: - subnet - tag_rule - topology - default  Defaults to _default_. | [optional] 
 **Subnets** | Pointer to **[]string** | Optional. List of subnets in CIDR format.  Must be set if _source_ is _subnet_, otherwise must be empty. | [optional] 
-**Tags** | Pointer to [**[]TagRule**](TagRule.md) | Optional. List of tag rules to match against a source object&#39;s effective tags. Effective tags &#x3D; direct tags plus tags inherited from the IPAM parent chain (IPSpace → Address Block → Subnet); the closer level wins on key conflicts. All rules use AND semantics: an object must satisfy every __TagRule__ to match.  Must be set if _source_ is _tags_, otherwise must be empty. | [optional] 
+**TagRules** | Pointer to [**[]TagRule**](TagRule.md) | Optional. List of tag rules to match against infrastructure source objects effective tags.  Must be set if _source_ is set to _tag_rule_, otherwise must be empty. | [optional] 
+**TopologyId** | Pointer to **string** | The resource identifier. | [optional] 
 
 ## Methods
 
@@ -176,30 +177,55 @@ SetSubnets sets Subnets field to given value.
 
 HasSubnets returns a boolean if a field has been set.
 
-### GetTags
+### GetTagRules
 
-`func (o *TopologyRule) GetTags() []TagRule`
+`func (o *TopologyRule) GetTagRules() []TagRule`
 
-GetTags returns the Tags field if non-nil, zero value otherwise.
+GetTagRules returns the TagRules field if non-nil, zero value otherwise.
 
-### GetTagsOk
+### GetTagRulesOk
 
-`func (o *TopologyRule) GetTagsOk() (*[]TagRule, bool)`
+`func (o *TopologyRule) GetTagRulesOk() (*[]TagRule, bool)`
 
-GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+GetTagRulesOk returns a tuple with the TagRules field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTags
+### SetTagRules
 
-`func (o *TopologyRule) SetTags(v []TagRule)`
+`func (o *TopologyRule) SetTagRules(v []TagRule)`
 
-SetTags sets Tags field to given value.
+SetTagRules sets TagRules field to given value.
 
-### HasTags
+### HasTagRules
 
-`func (o *TopologyRule) HasTags() bool`
+`func (o *TopologyRule) HasTagRules() bool`
 
-HasTags returns a boolean if a field has been set.
+HasTagRules returns a boolean if a field has been set.
+
+### GetTopologyId
+
+`func (o *TopologyRule) GetTopologyId() string`
+
+GetTopologyId returns the TopologyId field if non-nil, zero value otherwise.
+
+### GetTopologyIdOk
+
+`func (o *TopologyRule) GetTopologyIdOk() (*string, bool)`
+
+GetTopologyIdOk returns a tuple with the TopologyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTopologyId
+
+`func (o *TopologyRule) SetTopologyId(v string)`
+
+SetTopologyId sets TopologyId field to given value.
+
+### HasTopologyId
+
+`func (o *TopologyRule) HasTopologyId() bool`
+
+HasTopologyId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

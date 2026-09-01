@@ -1,7 +1,7 @@
 /*
 DNS DTC API
 
-The DNS DTC is a Universal DDI service providing load balanced DNS resolution.
+The DNS DTC is a Universal DDI service providing load balanced DNS resolution.   
 
 API version: v1
 */

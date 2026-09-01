@@ -1,7 +1,7 @@
 /*
 DNS DTC API
 
-The DNS DTC is a Universal DDI service providing load balanced DNS resolution.
+The DNS DTC is a Universal DDI service providing load balanced DNS resolution.   
 
 API version: v1
 */
@@ -23,17 +23,17 @@ type APIClient struct {
 	*internal.APIClient
 
 	// API Services
-	HealthCheckHttpAPI  HealthCheckHttpAPI
-	HealthCheckIcmpAPI  HealthCheckIcmpAPI
-	HealthCheckPdpAPI   HealthCheckPdpAPI
-	HealthCheckSipAPI   HealthCheckSipAPI
-	HealthCheckSnmpAPI  HealthCheckSnmpAPI
-	HealthCheckTcpAPI   HealthCheckTcpAPI
-	PolicyAPI           PolicyAPI
-	PoolAPI             PoolAPI
-	ServerAPI           ServerAPI
+	HealthCheckHttpAPI HealthCheckHttpAPI
+	HealthCheckIcmpAPI HealthCheckIcmpAPI
+	HealthCheckPdpAPI HealthCheckPdpAPI
+	HealthCheckSipAPI HealthCheckSipAPI
+	HealthCheckSnmpAPI HealthCheckSnmpAPI
+	HealthCheckTcpAPI HealthCheckTcpAPI
+	PolicyAPI PolicyAPI
+	PoolAPI PoolAPI
+	ServerAPI ServerAPI
 	SnmpUserSecurityAPI SnmpUserSecurityAPI
-	TopologyAPI         TopologyAPI
+	TopologyAPI TopologyAPI
 }
 
 // NewAPIClient creates a new API client.

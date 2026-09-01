@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountId** | **string** | The Infoblox account ID for which the token is generated. | 
 **ScopeArn** | **string** |  | 
-**Ttl** | Pointer to **string** | Optional token expiration duration in seconds. Defaults to 300 (5 minutes) if not specified or set to 0. Maximum allowed: 86400 (24 hours), Minimum: 0 (uses default). | [optional] 
+**Ttl** | Pointer to **int64** | Optional token expiration duration in seconds. Defaults to 300 (5 minutes) if not specified or set to 0. Maximum allowed: 86400 (24 hours), Minimum: 0 (uses default). | [optional] 
 
 ## Methods
 
@@ -69,20 +69,20 @@ SetScopeArn sets ScopeArn field to given value.
 
 ### GetTtl
 
-`func (o *ManageScopeTokenRequest) GetTtl() string`
+`func (o *ManageScopeTokenRequest) GetTtl() int64`
 
 GetTtl returns the Ttl field if non-nil, zero value otherwise.
 
 ### GetTtlOk
 
-`func (o *ManageScopeTokenRequest) GetTtlOk() (*string, bool)`
+`func (o *ManageScopeTokenRequest) GetTtlOk() (*int64, bool)`
 
 GetTtlOk returns a tuple with the Ttl field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTtl
 
-`func (o *ManageScopeTokenRequest) SetTtl(v string)`
+`func (o *ManageScopeTokenRequest) SetTtl(v int64)`
 
 SetTtl sets Ttl field to given value.
 

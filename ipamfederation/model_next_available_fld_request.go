@@ -31,7 +31,7 @@ type NextAvailableFLDRequest struct {
 	// The version of the address (_ip4_ or _ip6_). If not present then it will default to _ip4_.
 	Protocol *string `json:"protocol,omitempty"`
 	// The tags for the __ForwardLookingDelegation__ in JSON format. The tag will be used to identify the federated blocks which should be considered for __ForwardLookingDelegation__.
-	Tags                 map[string]interface{} `json:"tags"`
+	Tags                 map[string]interface{} `json:"tags,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -41,10 +41,9 @@ type _NextAvailableFLDRequest NextAvailableFLDRequest
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNextAvailableFLDRequest(cidr int64, tags map[string]interface{}) *NextAvailableFLDRequest {
+func NewNextAvailableFLDRequest(cidr int64) *NextAvailableFLDRequest {
 	this := NextAvailableFLDRequest{}
 	this.Cidr = cidr
-	this.Tags = tags
 	return &this
 }
 
@@ -208,26 +207,34 @@ func (o *NextAvailableFLDRequest) SetProtocol(v string) {
 	o.Protocol = &v
 }
 
-// GetTags returns the Tags field value
+// GetTags returns the Tags field value if set, zero value otherwise.
 func (o *NextAvailableFLDRequest) GetTags() map[string]interface{} {
-	if o == nil {
+	if o == nil || IsNil(o.Tags) {
 		var ret map[string]interface{}
 		return ret
 	}
-
 	return o.Tags
 }
 
-// GetTagsOk returns a tuple with the Tags field value
+// GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NextAvailableFLDRequest) GetTagsOk() (map[string]interface{}, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Tags) {
 		return map[string]interface{}{}, false
 	}
 	return o.Tags, true
 }
 
-// SetTags sets field value
+// HasTags returns a boolean if a field has been set.
+func (o *NextAvailableFLDRequest) HasTags() bool {
+	if o != nil && !IsNil(o.Tags) {
+		return true
+	}
+
+	return false
+}
+
+// SetTags gets a reference to the given map[string]interface{} and assigns it to the Tags field.
 func (o *NextAvailableFLDRequest) SetTags(v map[string]interface{}) {
 	o.Tags = v
 }
@@ -255,7 +262,9 @@ func (o NextAvailableFLDRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Protocol) {
 		toSerialize["protocol"] = o.Protocol
 	}
-	toSerialize["tags"] = o.Tags
+	if !IsNil(o.Tags) {
+		toSerialize["tags"] = o.Tags
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -270,7 +279,6 @@ func (o *NextAvailableFLDRequest) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"cidr",
-		"tags",
 	}
 
 	allProperties := make(map[string]interface{})

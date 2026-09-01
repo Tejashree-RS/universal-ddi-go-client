@@ -181,7 +181,7 @@ paths:
           \ or Equal To     | \n|  and  |  Logical AND               | \n|  ~    |\
           \  Matches Regex             | \n|  !~   |  Does Not Match Regex      |\
           \ \n|  or   |  Logical OR                | \n|  not  |  Logical NOT    \
-          \           | \n|  ()   |  Groupping Operators       |\n\n\t\t\t\t\t\t"
+          \           | \n|  ()   |  Grouping Operators       |\n\n\t\t\t\t\t\t"
         in: query
         name: _filter
         schema:
@@ -422,7 +422,7 @@ paths:
           \ or Equal To     | \n|  and  |  Logical AND               | \n|  ~    |\
           \  Matches Regex             | \n|  !~   |  Does Not Match Regex      |\
           \ \n|  or   |  Logical OR                | \n|  not  |  Logical NOT    \
-          \           | \n|  ()   |  Groupping Operators       |\n\n\t\t\t\t\t\t"
+          \           | \n|  ()   |  Grouping Operators       |\n\n\t\t\t\t\t\t"
         in: query
         name: _filter
         schema:
@@ -887,7 +887,7 @@ paths:
           \ or Equal To     | \n|  and  |  Logical AND               | \n|  ~    |\
           \  Matches Regex             | \n|  !~   |  Does Not Match Regex      |\
           \ \n|  or   |  Logical OR                | \n|  not  |  Logical NOT    \
-          \           | \n|  ()   |  Groupping Operators       |\n\n\t\t\t\t\t\t"
+          \           | \n|  ()   |  Grouping Operators       |\n\n\t\t\t\t\t\t"
         in: query
         name: _filter
         schema:
@@ -1136,7 +1136,7 @@ paths:
           \ or Equal To     | \n|  and  |  Logical AND               | \n|  ~    |\
           \  Matches Regex             | \n|  !~   |  Does Not Match Regex      |\
           \ \n|  or   |  Logical OR                | \n|  not  |  Logical NOT    \
-          \           | \n|  ()   |  Groupping Operators       |\n\n\t\t\t\t\t\t"
+          \           | \n|  ()   |  Grouping Operators       |\n\n\t\t\t\t\t\t"
         in: query
         name: _filter
         schema:
@@ -1348,7 +1348,7 @@ paths:
           \ or Equal To     | \n|  and  |  Logical AND               | \n|  ~    |\
           \  Matches Regex             | \n|  !~   |  Does Not Match Regex      |\
           \ \n|  or   |  Logical OR                | \n|  not  |  Logical NOT    \
-          \           | \n|  ()   |  Groupping Operators       |\n\n\t\t\t\t\t\t"
+          \           | \n|  ()   |  Grouping Operators       |\n\n\t\t\t\t\t\t"
         in: query
         name: _filter
         schema:
@@ -1652,7 +1652,7 @@ paths:
           \ or Equal To     | \n|  and  |  Logical AND               | \n|  ~    |\
           \  Matches Regex             | \n|  !~   |  Does Not Match Regex      |\
           \ \n|  or   |  Logical OR                | \n|  not  |  Logical NOT    \
-          \           | \n|  ()   |  Groupping Operators       |\n\n\t\t\t\t\t\t"
+          \           | \n|  ()   |  Grouping Operators       |\n\n\t\t\t\t\t\t"
         in: query
         name: _filter
         schema:
@@ -1852,7 +1852,7 @@ paths:
           \ or Equal To     | \n|  and  |  Logical AND               | \n|  ~    |\
           \  Matches Regex             | \n|  !~   |  Does Not Match Regex      |\
           \ \n|  or   |  Logical OR                | \n|  not  |  Logical NOT    \
-          \           | \n|  ()   |  Groupping Operators       |\n\n\t\t\t\t\t\t"
+          \           | \n|  ()   |  Grouping Operators       |\n\n\t\t\t\t\t\t"
         in: query
         name: _filter
         schema:
@@ -3563,7 +3563,8 @@ components:
             Optional token expiration duration in seconds. Defaults to 300 (5 minutes) if not specified or set to 0.
             Maximum allowed: 86400 (24 hours), Minimum: 0 (uses default).
           format: int64
-          type: string
+          maximum: 86400
+          type: integer
       required:
       - account_id
       - scope_arn
@@ -3823,7 +3824,6 @@ components:
           type: object
       required:
       - cidr
-      - tags
       title: ForwardLookingDelegationRequest
       type: object
     federationNextAvailableFLDResponse:

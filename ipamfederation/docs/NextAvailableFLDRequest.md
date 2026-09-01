@@ -9,13 +9,13 @@ Name | Type | Description | Notes
 **Count** | Pointer to **int64** | The count of __ForwardLookingDelegation__ required. If not provided, it will default to 1. | [optional] 
 **Name** | Pointer to **string** | The name to be provided. | [optional] 
 **Protocol** | Pointer to **string** | The version of the address (_ip4_ or _ip6_). If not present then it will default to _ip4_. | [optional] 
-**Tags** | **map[string]interface{}** | The tags for the __ForwardLookingDelegation__ in JSON format. The tag will be used to identify the federated blocks which should be considered for __ForwardLookingDelegation__. | 
+**Tags** | Pointer to **map[string]interface{}** | The tags for the __ForwardLookingDelegation__ in JSON format. The tag will be used to identify the federated blocks which should be considered for __ForwardLookingDelegation__. | [optional] 
 
 ## Methods
 
 ### NewNextAvailableFLDRequest
 
-`func NewNextAvailableFLDRequest(cidr int64, tags map[string]interface{}, ) *NextAvailableFLDRequest`
+`func NewNextAvailableFLDRequest(cidr int64, ) *NextAvailableFLDRequest`
 
 NewNextAvailableFLDRequest instantiates a new NextAvailableFLDRequest object
 This constructor will assign default values to properties that have it defined,
@@ -169,6 +169,11 @@ and a boolean to check if the value has been set.
 
 SetTags sets Tags field to given value.
 
+### HasTags
+
+`func (o *NextAvailableFLDRequest) HasTags() bool`
+
+HasTags returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

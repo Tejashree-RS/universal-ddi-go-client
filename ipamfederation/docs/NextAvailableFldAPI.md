@@ -101,7 +101,7 @@ import (
 )
 
 func main() {
-	body := *ipamfederation.NewNextAvailableFLDRequest(int64(123), map[string]interface{}(123)) // NextAvailableFLDRequest | 
+	body := *ipamfederation.NewNextAvailableFLDRequest(int64(123)) // NextAvailableFLDRequest | 
 
 	apiClient := ipamfederation.NewAPIClient()
 	resp, r, err := apiClient.NextAvailableFldAPI.CreateNextAvailableFLDBlocks(context.Background()).Body(body).Execute()

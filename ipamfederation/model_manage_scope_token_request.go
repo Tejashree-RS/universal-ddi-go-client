@@ -24,7 +24,7 @@ type ManageScopeTokenRequest struct {
 	AccountId string `json:"account_id"`
 	ScopeArn  string `json:"scope_arn"`
 	// Optional token expiration duration in seconds. Defaults to 300 (5 minutes) if not specified or set to 0. Maximum allowed: 86400 (24 hours), Minimum: 0 (uses default).
-	Ttl                  *string `json:"ttl,omitempty"`
+	Ttl                  *int64 `json:"ttl,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -98,9 +98,9 @@ func (o *ManageScopeTokenRequest) SetScopeArn(v string) {
 }
 
 // GetTtl returns the Ttl field value if set, zero value otherwise.
-func (o *ManageScopeTokenRequest) GetTtl() string {
+func (o *ManageScopeTokenRequest) GetTtl() int64 {
 	if o == nil || IsNil(o.Ttl) {
-		var ret string
+		var ret int64
 		return ret
 	}
 	return *o.Ttl
@@ -108,7 +108,7 @@ func (o *ManageScopeTokenRequest) GetTtl() string {
 
 // GetTtlOk returns a tuple with the Ttl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ManageScopeTokenRequest) GetTtlOk() (*string, bool) {
+func (o *ManageScopeTokenRequest) GetTtlOk() (*int64, bool) {
 	if o == nil || IsNil(o.Ttl) {
 		return nil, false
 	}
@@ -124,8 +124,8 @@ func (o *ManageScopeTokenRequest) HasTtl() bool {
 	return false
 }
 
-// SetTtl gets a reference to the given string and assigns it to the Ttl field.
-func (o *ManageScopeTokenRequest) SetTtl(v string) {
+// SetTtl gets a reference to the given int64 and assigns it to the Ttl field.
+func (o *ManageScopeTokenRequest) SetTtl(v int64) {
 	o.Ttl = &v
 }
 

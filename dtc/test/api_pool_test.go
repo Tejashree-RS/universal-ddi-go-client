@@ -27,8 +27,7 @@ func TestPoolAPIService(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
-		resp, httpRes, err := apiClient.PoolAPI.Create(context.Background()).
-			Body(*dtc.NewPool("round_robin", "test-pool")).Execute()
+		resp, httpRes, err := apiClient.PoolAPI.Create(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -81,8 +80,7 @@ func TestPoolAPIService(t *testing.T) {
 
 		var id string
 
-		resp, httpRes, err := apiClient.PoolAPI.Update(context.Background(), id).
-			Body(*dtc.NewPool("round_robin", "test-pool-updated")).Execute()
+		resp, httpRes, err := apiClient.PoolAPI.Update(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -2203,47 +2203,6 @@ components:
           type: string
       title: ResourceMeta
       type: object
-    PolicyTopologyRuleBinding:
-      description: A __RuleBinding__ maps one __TopologyRulePreset__ (by _name_) to
-        the destination to use when that preset matches.
-      example:
-        code: code
-        destination: destination
-        name: name
-        pool_id: pool_id
-      properties:
-        code:
-          description: |-
-            Optional. DNS code to return if the referenced preset matches.
-            Must be set if _destination_ is _code_.
-
-            Allowed values:
-            - nodata
-            - nxdomain
-
-            Defaults to _nodata_.
-          type: string
-        destination:
-          description: |-
-            Destination of the matched __TopologyRulePreset__.
-
-            Allowed values:
-            - code
-            - pool
-
-            Defaults to _code_.
-          type: string
-        name:
-          description: Required. Name of the __TopologyRulePreset__ from the referenced
-            __Topology__.
-          type: string
-        pool_id:
-          description: The resource identifier.
-          type: string
-      required:
-      - name
-      title: RuleBinding
-      type: object
     SNMPHealthCheckEntryCheck:
       description: Specific check for an SNMP entry and its value in MIB hierarchy.
       example:
@@ -2443,17 +2402,6 @@ components:
               id: id
               display_name: display_name
           method: method
-          topology:
-            topology_id: topology_id
-            rules:
-            - code: code
-              destination: destination
-              name: name
-              pool_id: pool_id
-            - code: code
-              destination: destination
-              name: name
-              pool_id: pool_id
           name: name
           pools:
           - name: name
@@ -2465,7 +2413,8 @@ components:
           comment: comment
           disabled: true
           rules:
-          - code: code
+          - topology_id: topology_id
+            code: code
             destination: destination
             name: name
             subnets:
@@ -2473,14 +2422,15 @@ components:
             - subnets
             source: source
             pool_id: pool_id
-            tags:
+            tag_rules:
             - op: op
               value: value
               key: key
             - op: op
               value: value
               key: key
-          - code: code
+          - topology_id: topology_id
+            code: code
             destination: destination
             name: name
             subnets:
@@ -2488,7 +2438,7 @@ components:
             - subnets
             source: source
             pool_id: pool_id
-            tags:
+            tag_rules:
             - op: op
               value: value
               key: key
@@ -2736,34 +2686,34 @@ components:
                 key: details
               id: id
               display_name: display_name
+          sources:
+          - name: name
+            subnets:
+            - subnets
+            - subnets
+            source: source
+            tag_rules:
+            - op: op
+              value: value
+              key: key
+            - op: op
+              value: value
+              key: key
+          - name: name
+            subnets:
+            - subnets
+            - subnets
+            source: source
+            tag_rules:
+            - op: op
+              value: value
+              key: key
+            - op: op
+              value: value
+              key: key
           name: name
           comment: comment
           disabled: true
-          rules:
-          - name: name
-            subnets:
-            - subnets
-            - subnets
-            source: source
-            tags:
-            - op: op
-              value: value
-              key: key
-            - op: op
-              value: value
-              key: key
-          - name: name
-            subnets:
-            - subnets
-            - subnets
-            source: source
-            tags:
-            - op: op
-              value: value
-              key: key
-            - op: op
-              value: value
-              key: key
           id: id
           tags: "{}"
       properties:
@@ -3248,17 +3198,6 @@ components:
               id: id
               display_name: display_name
           method: method
-          topology:
-            topology_id: topology_id
-            rules:
-            - code: code
-              destination: destination
-              name: name
-              pool_id: pool_id
-            - code: code
-              destination: destination
-              name: name
-              pool_id: pool_id
           name: name
           pools:
           - name: name
@@ -3270,7 +3209,8 @@ components:
           comment: comment
           disabled: true
           rules:
-          - code: code
+          - topology_id: topology_id
+            code: code
             destination: destination
             name: name
             subnets:
@@ -3278,14 +3218,15 @@ components:
             - subnets
             source: source
             pool_id: pool_id
-            tags:
+            tag_rules:
             - op: op
               value: value
               key: key
             - op: op
               value: value
               key: key
-          - code: code
+          - topology_id: topology_id
+            code: code
             destination: destination
             name: name
             subnets:
@@ -3293,7 +3234,7 @@ components:
             - subnets
             source: source
             pool_id: pool_id
-            tags:
+            tag_rules:
             - op: op
               value: value
               key: key
@@ -3320,17 +3261,6 @@ components:
               id: id
               display_name: display_name
           method: method
-          topology:
-            topology_id: topology_id
-            rules:
-            - code: code
-              destination: destination
-              name: name
-              pool_id: pool_id
-            - code: code
-              destination: destination
-              name: name
-              pool_id: pool_id
           name: name
           pools:
           - name: name
@@ -3342,7 +3272,8 @@ components:
           comment: comment
           disabled: true
           rules:
-          - code: code
+          - topology_id: topology_id
+            code: code
             destination: destination
             name: name
             subnets:
@@ -3350,14 +3281,15 @@ components:
             - subnets
             source: source
             pool_id: pool_id
-            tags:
+            tag_rules:
             - op: op
               value: value
               key: key
             - op: op
               value: value
               key: key
-          - code: code
+          - topology_id: topology_id
+            code: code
             destination: destination
             name: name
             subnets:
@@ -3365,7 +3297,7 @@ components:
             - subnets
             source: source
             pool_id: pool_id
-            tags:
+            tag_rules:
             - op: op
               value: value
               key: key
@@ -3799,34 +3731,34 @@ components:
                 key: details
               id: id
               display_name: display_name
+          sources:
+          - name: name
+            subnets:
+            - subnets
+            - subnets
+            source: source
+            tag_rules:
+            - op: op
+              value: value
+              key: key
+            - op: op
+              value: value
+              key: key
+          - name: name
+            subnets:
+            - subnets
+            - subnets
+            source: source
+            tag_rules:
+            - op: op
+              value: value
+              key: key
+            - op: op
+              value: value
+              key: key
           name: name
           comment: comment
           disabled: true
-          rules:
-          - name: name
-            subnets:
-            - subnets
-            - subnets
-            source: source
-            tags:
-            - op: op
-              value: value
-              key: key
-            - op: op
-              value: value
-              key: key
-          - name: name
-            subnets:
-            - subnets
-            - subnets
-            source: source
-            tags:
-            - op: op
-              value: value
-              key: key
-            - op: op
-              value: value
-              key: key
           id: id
           tags: "{}"
         - metadata:
@@ -3839,34 +3771,34 @@ components:
                 key: details
               id: id
               display_name: display_name
+          sources:
+          - name: name
+            subnets:
+            - subnets
+            - subnets
+            source: source
+            tag_rules:
+            - op: op
+              value: value
+              key: key
+            - op: op
+              value: value
+              key: key
+          - name: name
+            subnets:
+            - subnets
+            - subnets
+            source: source
+            tag_rules:
+            - op: op
+              value: value
+              key: key
+            - op: op
+              value: value
+              key: key
           name: name
           comment: comment
           disabled: true
-          rules:
-          - name: name
-            subnets:
-            - subnets
-            - subnets
-            source: source
-            tags:
-            - op: op
-              value: value
-              key: key
-            - op: op
-              value: value
-              key: key
-          - name: name
-            subnets:
-            - subnets
-            - subnets
-            source: source
-            tags:
-            - op: op
-              value: value
-              key: key
-            - op: op
-              value: value
-              key: key
           id: id
           tags: "{}"
       properties:
@@ -4008,17 +3940,6 @@ components:
             id: id
             display_name: display_name
         method: method
-        topology:
-          topology_id: topology_id
-          rules:
-          - code: code
-            destination: destination
-            name: name
-            pool_id: pool_id
-          - code: code
-            destination: destination
-            name: name
-            pool_id: pool_id
         name: name
         pools:
         - name: name
@@ -4030,7 +3951,8 @@ components:
         comment: comment
         disabled: true
         rules:
-        - code: code
+        - topology_id: topology_id
+          code: code
           destination: destination
           name: name
           subnets:
@@ -4038,14 +3960,15 @@ components:
           - subnets
           source: source
           pool_id: pool_id
-          tags:
+          tag_rules:
           - op: op
             value: value
             key: key
           - op: op
             value: value
             key: key
-        - code: code
+        - topology_id: topology_id
+          code: code
           destination: destination
           name: name
           subnets:
@@ -4053,7 +3976,7 @@ components:
           - subnets
           source: source
           pool_id: pool_id
-          tags:
+          tag_rules:
           - op: op
             value: value
             key: key
@@ -4125,7 +4048,6 @@ components:
             Optional. List of inline __TopologyRule__ objects defining the resolving strategy
             for __Policy__.
 
-            Mutually exclusive with _topology_: if _topology_ is set, _rules_ must be empty.
             Defaults to a list of single, default __TopologyRule__.
           items:
             $ref: '#/components/schemas/dtcTopologyRule'
@@ -4134,8 +4056,6 @@ components:
           additionalProperties: false
           description: Optional. The tags for __Policy__ in JSON format.
           type: object
-        topology:
-          $ref: '#/components/schemas/dtcPolicyTopology'
         ttl:
           description: |-
             Optional. Time to live value (in seconds) to be used for records in DTC response.
@@ -4170,37 +4090,6 @@ components:
       required:
       - pool_id
       title: PolicyPool
-      type: object
-    dtcPolicyTopology:
-      description: A __PolicyTopology__ binds a __Topology__ to a __Policy__ by mapping
-        each __TopologyRulePreset__ (by _name_) to the destination (DNS code or __Pool__)
-        to use when that preset matches.
-      example:
-        topology_id: topology_id
-        rules:
-        - code: code
-          destination: destination
-          name: name
-          pool_id: pool_id
-        - code: code
-          destination: destination
-          name: name
-          pool_id: pool_id
-      properties:
-        rules:
-          description: |-
-            Ordered list of destination bindings, one per __TopologyRulePreset__ in the
-            referenced __Topology__. Each binding maps a preset _name_ to the destination
-            to use when that preset matches.
-          items:
-            $ref: '#/components/schemas/PolicyTopologyRuleBinding'
-          type: array
-        topology_id:
-          description: The resource identifier.
-          type: string
-      required:
-      - topology_id
-      title: PolicyTopology
       type: object
     dtcPool:
       description: "A __Pool__ (_dtc/pool_) represents a collection of servers, it\
@@ -4554,17 +4443,6 @@ components:
               id: id
               display_name: display_name
           method: method
-          topology:
-            topology_id: topology_id
-            rules:
-            - code: code
-              destination: destination
-              name: name
-              pool_id: pool_id
-            - code: code
-              destination: destination
-              name: name
-              pool_id: pool_id
           name: name
           pools:
           - name: name
@@ -4576,7 +4454,8 @@ components:
           comment: comment
           disabled: true
           rules:
-          - code: code
+          - topology_id: topology_id
+            code: code
             destination: destination
             name: name
             subnets:
@@ -4584,14 +4463,15 @@ components:
             - subnets
             source: source
             pool_id: pool_id
-            tags:
+            tag_rules:
             - op: op
               value: value
               key: key
             - op: op
               value: value
               key: key
-          - code: code
+          - topology_id: topology_id
+            code: code
             destination: destination
             name: name
             subnets:
@@ -4599,7 +4479,7 @@ components:
             - subnets
             source: source
             pool_id: pool_id
-            tags:
+            tag_rules:
             - op: op
               value: value
               key: key
@@ -4847,34 +4727,34 @@ components:
                 key: details
               id: id
               display_name: display_name
+          sources:
+          - name: name
+            subnets:
+            - subnets
+            - subnets
+            source: source
+            tag_rules:
+            - op: op
+              value: value
+              key: key
+            - op: op
+              value: value
+              key: key
+          - name: name
+            subnets:
+            - subnets
+            - subnets
+            source: source
+            tag_rules:
+            - op: op
+              value: value
+              key: key
+            - op: op
+              value: value
+              key: key
           name: name
           comment: comment
           disabled: true
-          rules:
-          - name: name
-            subnets:
-            - subnets
-            - subnets
-            source: source
-            tags:
-            - op: op
-              value: value
-              key: key
-            - op: op
-              value: value
-              key: key
-          - name: name
-            subnets:
-            - subnets
-            - subnets
-            source: source
-            tags:
-            - op: op
-              value: value
-              key: key
-            - op: op
-              value: value
-              key: key
           id: id
           tags: "{}"
       properties:
@@ -5415,9 +5295,8 @@ components:
       title: TTLInheritance
       type: object
     dtcTagRule:
-      description: "A __TagRule__ is a single match criterion used by a tags-based\
-        \ topology rule source. Each rule carries a _key_, _value_, and an optional\
-        \ match _op_."
+      description: A __TagRule__ is a single match criterion used to select infrastructure
+        source objects.
       example:
         op: op
         value: value
@@ -5434,7 +5313,9 @@ components:
             Supported values:
             - EQUALS: matches when the key exists and its value equals the configured value.
             - NOT_EQUALS: matches when the key exists and all values for that key differ
-              from the configured value. A missing key does not satisfy either operator.
+              from the configured value.
+
+            A missing key does not satisfy either operator.
 
             Defaults to _EQUALS_.
           type: string
@@ -5448,9 +5329,8 @@ components:
       title: TagRule
       type: object
     dtcTopology:
-      description: "A __Topology__ (_dtc/topology_) is a reusable, named set of __TopologyRulePreset__\
-        \ objects that provide deterministic infrastructure classification for DTC\
-        \ __Policy__ evaluation using infrastructure source object tags."
+      description: "A __Topology__ (_dtc/topology_) is a reusable, named set of __TopologySource__\
+        \ objects."
       example:
         metadata:
           used_by:
@@ -5462,34 +5342,34 @@ components:
               key: details
             id: id
             display_name: display_name
+        sources:
+        - name: name
+          subnets:
+          - subnets
+          - subnets
+          source: source
+          tag_rules:
+          - op: op
+            value: value
+            key: key
+          - op: op
+            value: value
+            key: key
+        - name: name
+          subnets:
+          - subnets
+          - subnets
+          source: source
+          tag_rules:
+          - op: op
+            value: value
+            key: key
+          - op: op
+            value: value
+            key: key
         name: name
         comment: comment
         disabled: true
-        rules:
-        - name: name
-          subnets:
-          - subnets
-          - subnets
-          source: source
-          tags:
-          - op: op
-            value: value
-            key: key
-          - op: op
-            value: value
-            key: key
-        - name: name
-          subnets:
-          - subnets
-          - subnets
-          source: source
-          tags:
-          - op: op
-            value: value
-            key: key
-          - op: op
-            value: value
-            key: key
         id: id
         tags: "{}"
       properties:
@@ -5512,14 +5392,10 @@ components:
         name:
           description: Display name of __Topology__.
           type: string
-        rules:
-          description: |-
-            List of __TopologyRulePreset__ objects defining the resolving strategy for __Policy__.
-            Preset names must be unique within __Topology__.
-
-            Defaults to a list with a single, default __TopologyRulePreset__.
+        sources:
+          description: Required. List of __TopologySource__ objects with unique names.
           items:
-            $ref: '#/components/schemas/dtcTopologyRulePreset'
+            $ref: '#/components/schemas/dtcTopologySource'
           type: array
         tags:
           additionalProperties: false
@@ -5527,12 +5403,14 @@ components:
           type: object
       required:
       - name
+      - sources
       title: Topology
       type: object
     dtcTopologyRule:
       description: A __TopologyRule__ represents a rule for topology load balancing
         method.
       example:
+        topology_id: topology_id
         code: code
         destination: destination
         name: name
@@ -5541,7 +5419,7 @@ components:
         - subnets
         source: source
         pool_id: pool_id
-        tags:
+        tag_rules:
         - op: op
           value: value
           key: key
@@ -5582,7 +5460,8 @@ components:
 
             Allowed values:
             - subnet
-            - tags
+            - tag_rule
+            - topology
             - default
 
             Defaults to _default_.
@@ -5595,35 +5474,31 @@ components:
           items:
             type: string
           type: array
-        tags:
+        tag_rules:
           description: |-
-            Optional. List of tag rules to match against a source object's effective tags.
-            Effective tags = direct tags plus tags inherited from the IPAM parent chain
-            (IPSpace → Address Block → Subnet); the closer level wins on key conflicts.
-            All rules use AND semantics: an object must satisfy every __TagRule__ to match.
+            Optional. List of tag rules to match against infrastructure source objects effective tags.
 
-            Must be set if _source_ is _tags_, otherwise must be empty.
+            Must be set if _source_ is set to _tag_rule_, otherwise must be empty.
           items:
             $ref: '#/components/schemas/dtcTagRule'
           type: array
+        topology_id:
+          description: The resource identifier.
+          type: string
       required:
       - name
       title: TopologyRule
       type: object
-    dtcTopologyRulePreset:
-      description: "A __TopologyRulePreset__ is a named set of match criteria for\
-        \ classifying infrastructure source objects. A __Topology__ holds an ordered\
-        \ list of __TopologyRulePreset__ objects evaluated top to bottom; the first\
-        \ preset whose criteria all match wins. Destination (DNS code or __Pool__)\
-        \ is configured separately per __Policy__ in __PolicyTopology.RuleBinding__,\
-        \ not on the preset itself."
+    dtcTopologySource:
+      description: A __TopologySource__ is a named source to be used in __TopologyRule__
+        objects.
       example:
         name: name
         subnets:
         - subnets
         - subnets
         source: source
-        tags:
+        tag_rules:
         - op: op
           value: value
           key: key
@@ -5632,8 +5507,7 @@ components:
           key: key
       properties:
         name:
-          description: Required. Display name of __TopologyRulePreset__. Must be unique
-            within __Topology__.
+          description: Required. Display name of __TopologySource__.
           type: string
         source:
           description: |-
@@ -5641,33 +5515,30 @@ components:
 
             Allowed values:
             - subnet
-            - tags
-            - default
+            - tag_rule
 
-            Defaults to _default_.
+            Required.
           type: string
         subnets:
           description: |-
             Optional. List of subnets in CIDR format.
 
-            Must be set if _source_ is _subnet_, otherwise must be empty.
+            Must be set if _source_ is set to _subnet_, otherwise must be empty.
           items:
             type: string
           type: array
-        tags:
+        tag_rules:
           description: |-
-            Optional. List of tag rules to match against a source object's effective tags.
-            Effective tags = direct tags plus tags inherited from the IPAM parent chain
-            (IPSpace → Address Block → Subnet); the closer level wins on key conflicts.
-            All rules use AND semantics: an object must satisfy every __TagRule__ to match.
+            Optional. List of tag rules to match against infrastructure source objects effective tags.
 
-            Must be set if _source_ is _tags_, otherwise must be empty.
+            Must be set if _source_ is set to _tag_rule_, otherwise must be empty.
           items:
             $ref: '#/components/schemas/dtcTagRule'
           type: array
       required:
       - name
-      title: TopologyRulePreset
+      - source
+      title: TopologySource
       type: object
     dtcUpdateHTTPHealthCheckResponse:
       description: The __HTTPHealthCheck__ object update response format.
@@ -5789,17 +5660,6 @@ components:
               id: id
               display_name: display_name
           method: method
-          topology:
-            topology_id: topology_id
-            rules:
-            - code: code
-              destination: destination
-              name: name
-              pool_id: pool_id
-            - code: code
-              destination: destination
-              name: name
-              pool_id: pool_id
           name: name
           pools:
           - name: name
@@ -5811,7 +5671,8 @@ components:
           comment: comment
           disabled: true
           rules:
-          - code: code
+          - topology_id: topology_id
+            code: code
             destination: destination
             name: name
             subnets:
@@ -5819,14 +5680,15 @@ components:
             - subnets
             source: source
             pool_id: pool_id
-            tags:
+            tag_rules:
             - op: op
               value: value
               key: key
             - op: op
               value: value
               key: key
-          - code: code
+          - topology_id: topology_id
+            code: code
             destination: destination
             name: name
             subnets:
@@ -5834,7 +5696,7 @@ components:
             - subnets
             source: source
             pool_id: pool_id
-            tags:
+            tag_rules:
             - op: op
               value: value
               key: key
@@ -6082,34 +5944,34 @@ components:
                 key: details
               id: id
               display_name: display_name
+          sources:
+          - name: name
+            subnets:
+            - subnets
+            - subnets
+            source: source
+            tag_rules:
+            - op: op
+              value: value
+              key: key
+            - op: op
+              value: value
+              key: key
+          - name: name
+            subnets:
+            - subnets
+            - subnets
+            source: source
+            tag_rules:
+            - op: op
+              value: value
+              key: key
+            - op: op
+              value: value
+              key: key
           name: name
           comment: comment
           disabled: true
-          rules:
-          - name: name
-            subnets:
-            - subnets
-            - subnets
-            source: source
-            tags:
-            - op: op
-              value: value
-              key: key
-            - op: op
-              value: value
-              key: key
-          - name: name
-            subnets:
-            - subnets
-            - subnets
-            source: source
-            tags:
-            - op: op
-              value: value
-              key: key
-            - op: op
-              value: value
-              key: key
           id: id
           tags: "{}"
       properties:
@@ -6152,6 +6014,8 @@ components:
       type: object
   securitySchemes:
     ApiKeyAuth:
+      description: "Please provide below your API key with the _Token_ prefix, e.g.\
+        \ _Token &lt;YOUR API KEY&gt;_"
       in: header
       name: Authorization
       type: apiKey

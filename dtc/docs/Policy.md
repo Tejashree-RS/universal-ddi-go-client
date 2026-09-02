@@ -12,9 +12,8 @@ Name | Type | Description | Notes
 **Method** | **string** | Load balancing method used for selecting __Pool__ assigned to __Policy__.  Valid values are: * _round_robin_ If the _round_robin_ load balancing method is selected, Universal DDI adjusts the response to a query in a sequential and circular manner, directing clients to pools.  * _ratio_ If _ratio_ load balancing method is selected, Universal DDI adjusts the response to a query so that clients are directed to pool using weighted round robin, a load-balancing pattern in which requests are distributed among several resources based on weight assigned to each resource. The distribution of responses over time will be equal for all available pools but the sequence of the responses won&#39;t be guaranteed. When equal weights are assigned for resources (pools) it effectively leads to basic round robin configuration which directs clients to pools in a sequential and circular manner.  * _topology_ If _topology_ load balancing method is selected the pools configured for the policy are ignored and topology rules are used instead.  * _global_availability_ If _global_availability_ load balancing method is selected clients are directed to the first pool that is up in the _pools_ list.  Defaults to _round_robin_. | 
 **Name** | **string** | Display name of __Policy__. | 
 **Pools** | Pointer to [**[]PolicyPool**](PolicyPool.md) | Optional. List of __Pool__ objects assigned to __Policy__.  Defaults to _empty_. | [optional] 
-**Rules** | Pointer to [**[]TopologyRule**](TopologyRule.md) | Optional. List of inline __TopologyRule__ objects defining the resolving strategy for __Policy__.  Mutually exclusive with _topology_: if _topology_ is set, _rules_ must be empty. Defaults to a list of single, default __TopologyRule__. | [optional] 
+**Rules** | Pointer to [**[]TopologyRule**](TopologyRule.md) | Optional. List of inline __TopologyRule__ objects defining the resolving strategy for __Policy__.  Defaults to a list of single, default __TopologyRule__. | [optional] 
 **Tags** | Pointer to **map[string]interface{}** | Optional. The tags for __Policy__ in JSON format. | [optional] 
-**Topology** | Pointer to [**PolicyTopology**](PolicyTopology.md) | Optional. __Topology__ binding for this __Policy__.  When set, resolution uses the referenced __Topology__&#39;s __TopologyRulePreset__ entries together with the destinations configured in __PolicyTopology.RuleBinding__.  Mutually exclusive with _rules_: if _rules_ is non-empty, _topology_ must be unset. | [optional] 
 **Ttl** | Pointer to **int64** | Optional. Time to live value (in seconds) to be used for records in DTC response. Unsigned integer, min: 0, max 2147483647 (31-bits per RFC-2181). | [optional] 
 
 ## Methods
@@ -275,31 +274,6 @@ SetTags sets Tags field to given value.
 `func (o *Policy) HasTags() bool`
 
 HasTags returns a boolean if a field has been set.
-
-### GetTopology
-
-`func (o *Policy) GetTopology() PolicyTopology`
-
-GetTopology returns the Topology field if non-nil, zero value otherwise.
-
-### GetTopologyOk
-
-`func (o *Policy) GetTopologyOk() (*PolicyTopology, bool)`
-
-GetTopologyOk returns a tuple with the Topology field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTopology
-
-`func (o *Policy) SetTopology(v PolicyTopology)`
-
-SetTopology sets Topology field to given value.
-
-### HasTopology
-
-`func (o *Policy) HasTopology() bool`
-
-HasTopology returns a boolean if a field has been set.
 
 ### GetTtl
 

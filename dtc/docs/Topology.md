@@ -7,16 +7,16 @@ Name | Type | Description | Notes
 **Comment** | Pointer to **string** | Optional. Comment for __Topology__. | [optional] 
 **Disabled** | Pointer to **bool** | Optional. Flag which enables/disables __Topology__.  Defaults to _false_. | [optional] 
 **Id** | Pointer to **string** | The resource identifier. | [optional] [readonly] 
-**Metadata** | Pointer to [**Metadata**](Metadata.md) | Output only. __Topology__ metadata. Defaults to empty object and should be explicitly requested using field selection. | [optional] 
+**Metadata** | Pointer to [**Metadata**](Metadata.md) | Output only. __Topology__ metadata.  Defaults to empty object and should be explicitly requested using field selection. | [optional] 
 **Name** | **string** | Display name of __Topology__. | 
-**Rules** | Pointer to [**[]TopologyRulePreset**](TopologyRulePreset.md) | List of __TopologyRulePreset__ objects defining the resolving strategy for __Policy__. Preset names must be unique within __Topology__.  Defaults to a list with a single, default __TopologyRulePreset__. | [optional] 
+**Sources** | [**[]TopologySource**](TopologySource.md) | Required. List of __TopologySource__ objects with unique names. | 
 **Tags** | Pointer to **map[string]interface{}** | Optional. The tags for __Topology__ in JSON format. | [optional] 
 
 ## Methods
 
 ### NewTopology
 
-`func NewTopology(name string, ) *Topology`
+`func NewTopology(name string, sources []TopologySource, ) *Topology`
 
 NewTopology instantiates a new Topology object
 This constructor will assign default values to properties that have it defined,
@@ -151,30 +151,25 @@ and a boolean to check if the value has been set.
 SetName sets Name field to given value.
 
 
-### GetRules
+### GetSources
 
-`func (o *Topology) GetRules() []TopologyRulePreset`
+`func (o *Topology) GetSources() []TopologySource`
 
-GetRules returns the Rules field if non-nil, zero value otherwise.
+GetSources returns the Sources field if non-nil, zero value otherwise.
 
-### GetRulesOk
+### GetSourcesOk
 
-`func (o *Topology) GetRulesOk() (*[]TopologyRulePreset, bool)`
+`func (o *Topology) GetSourcesOk() (*[]TopologySource, bool)`
 
-GetRulesOk returns a tuple with the Rules field if it's non-nil, zero value otherwise
+GetSourcesOk returns a tuple with the Sources field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRules
+### SetSources
 
-`func (o *Topology) SetRules(v []TopologyRulePreset)`
+`func (o *Topology) SetSources(v []TopologySource)`
 
-SetRules sets Rules field to given value.
+SetSources sets Sources field to given value.
 
-### HasRules
-
-`func (o *Topology) HasRules() bool`
-
-HasRules returns a boolean if a field has been set.
 
 ### GetTags
 

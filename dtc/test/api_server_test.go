@@ -27,10 +27,7 @@ func TestServerAPIService(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
-		body := dtc.NewServer("test-server")
-		body.SetAddress("1.2.3.4")
-
-		resp, httpRes, err := apiClient.ServerAPI.Create(context.Background()).Body(*body).Execute()
+		resp, httpRes, err := apiClient.ServerAPI.Create(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -83,10 +80,7 @@ func TestServerAPIService(t *testing.T) {
 
 		var id string
 
-		body := dtc.NewServer("test-server-updated")
-		body.SetAddress("1.2.3.4")
-
-		resp, httpRes, err := apiClient.ServerAPI.Update(context.Background(), id).Body(*body).Execute()
+		resp, httpRes, err := apiClient.ServerAPI.Update(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

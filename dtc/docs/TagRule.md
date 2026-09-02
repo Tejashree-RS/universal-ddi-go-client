@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Key** | **string** | Required. Tag key to match against a source object&#39;s effective tags. | 
-**Op** | Pointer to **string** | Optional. Match operator.  Supported values: - EQUALS: matches when the key exists and its value equals the configured value. - NOT_EQUALS: matches when the key exists and all values for that key differ   from the configured value. A missing key does not satisfy either operator.  Defaults to _EQUALS_. | [optional] 
+**Op** | Pointer to **string** | Optional. Match operator.  Supported values: - EQUALS: matches when the key exists and its value equals the configured value. - NOT_EQUALS: matches when the key exists and all values for that key differ   from the configured value.  A missing key does not satisfy either operator.  Defaults to _EQUALS_. | [optional] 
 **Value** | **string** | Required. Tag value to match against a source object&#39;s effective tags. | 
 
 ## Methods

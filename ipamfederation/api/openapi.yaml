@@ -2720,7 +2720,6 @@ components:
         utilization_v6:
           $ref: '#/components/schemas/federationUtilizationV6'
       required:
-      - address
       - federated_realm
       title: FederatedBlock
       type: object

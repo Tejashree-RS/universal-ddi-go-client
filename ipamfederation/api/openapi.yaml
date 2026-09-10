@@ -1733,6 +1733,8 @@ paths:
       summary: Create the overlapping block.
       tags:
       - overlapping_block
+      x-tf-resource: overlapping_block
+      x-tf-datasource: overlapping_blocks
       x-sdk-default-tags: true
       x-codegen-request-body-name: body
   /federation/overlapping_block/{id}:
@@ -2594,7 +2596,6 @@ components:
           readOnly: true
           type: integer
       required:
-      - address
       - delegated_to
       title: Delegation
       type: object
@@ -2992,7 +2993,6 @@ components:
           readOnly: true
           type: string
       required:
-      - address
       - federated_realms
       title: ForwardLookingDelegation
       type: object
@@ -3948,7 +3948,6 @@ components:
           readOnly: true
           type: string
       required:
-      - address
       - federated_realm
       title: OverlappingBlock
       type: object
@@ -4269,7 +4268,6 @@ components:
           readOnly: true
           type: string
       required:
-      - address
       - federated_realm
       title: ReservedBlock
       type: object

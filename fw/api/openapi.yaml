@@ -4969,7 +4969,9 @@ components:
       description: |-
         The Named List object.
 
-        The Named List object.\n\nThe Named List object represents Threat Insight, DGA, DNSM, and other predefined threat intelligence feeds supported by Infoblox Cloud and offered by your subscription. For more protection, create custom allow-lists and deny-lists of domains and IP addresses, and use these custom lists to complement existing feeds or override the Block, Allow, Log, or Redirect action currently defined for existing feeds. Note that lists representing predefined TI feeds cannot be created, updated, or deleted.
+        The Named List object represents Threat Insight, DGA, DNSM, and other predefined threat intelligence feeds supported by Infoblox Cloud and offered by your subscription. For more protection, create custom allow-lists and deny-lists of domains and IP addresses, and use these custom lists to complement existing feeds or override the Block, Allow, Log, or Redirect action currently defined for an existing feed.
+
+        Note that lists representing predefined TI feeds cannot be created, updated, or deleted.
       example:
         item_count: 24567
         created_time: 2000-01-23T04:56:07.000+00:00

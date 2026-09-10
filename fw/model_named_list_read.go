@@ -18,7 +18,7 @@ import (
 // checks if the NamedListRead type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &NamedListRead{}
 
-// NamedListRead The Named List object.  The Named List object represents Threat Insight, DGA, DNSM, and other predefined threat intelligence feeds supported by Infoblox Cloud and offered by your subscription. For more protection, create custom allow-lists and deny-lists of domains and IP addresses, and use these custom lists to complement existing feeds or override the Block, Allow, Log, or Redirect action currently defined for an existing feed.  Note that lists representing predefined TI feeds cannot be created, updated, or deleted.
+// NamedListRead The Named List object.  The Named List object represents Threat Insight, DGA, DNSM, and other predefined threat intelligence feeds supported by Infoblox Cloud and offered by your subscription. For more protection, create custom allow-lists and deny-lists of domains and IP addresses, and use these custom lists to complement existing feeds or override the Block, Allow, Log, or Redirect action currently defined for existing feeds. Note that lists representing predefined TI feeds cannot be created, updated, or deleted.
 type NamedListRead struct {
 	// The confidence level for a custom list. The possible values are \"LOW\", \"MEDIUM\", and \"HIGH\".
 	ConfidenceLevel *string `json:"confidence_level,omitempty"`
